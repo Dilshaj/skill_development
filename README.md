@@ -1,19 +1,21 @@
 # Dilshaj Infotech - Skill Development Program Website
 
-A production-ready, full-stack website and registration management system for the **Dilshaj Infotech Skill Development Program**.
+A production-ready website and registration management system for the **Dilshaj Infotech Skill Development Program**, backed by a local **SQLite database** (`registrations.db`).
 
 ---
 
 ## 📁 Project Structure
 
 ```
-skill/
+skill_development/
 ├── css/
-│   └── style.css       # Complete responsive CSS design system & DR branding
+│   └── style.css       # Responsive CSS design system & DR branding
 ├── js/
-│   └── app.js          # Interactive UI logic, registration storage & payment flow
+│   └── app.js          # Interactive UI logic, registration storage & SQLite sync
 ├── index.html          # Main student landing & registration page
-├── admin.html          # Administration portal (filtering, search, export to CSV)
+├── admin.html          # Administration portal (filtering, search, CSV export)
+├── server.py           # Python server with SQLite database & REST APIs
+├── registrations.db    # SQLite database file (stores all registered users)
 └── README.md
 ```
 
@@ -21,22 +23,117 @@ skill/
 
 ## 🚀 How to Run
 
-### Option 1: VS Code Live Server
-1. Click **"Go Live"** in VS Code.
-2. **Main Website:** [http://127.0.0.1:5500/](http://127.0.0.1:5500/) (opens [index.html](file:///c:/Users/satya/OneDrive/Desktop/skill/index.html) automatically)
-3. **Admin Portal:** [http://127.0.0.1:5500/admin.html](http://127.0.0.1:5500/admin.html) (Passcode: `dilshaj_admin_2026_secure`)
+### Option 1: Run with Python & SQLite Backend (Recommended)
 
-### Option 2: Open Directly in Browser
-- Double-click [index.html](file:///c:/Users/satya/OneDrive/Desktop/skill/index.html) or [admin.html](file:///c:/Users/satya/OneDrive/Desktop/skill/admin.html) directly from File Explorer!
+Starts the server with persistent SQLite database storage and REST APIs:
 
-### 💡 Features Working Purely in Frontend:
-- **Student Registration**: Validates and saves registrations instantly in browser `localStorage`.
-- **Admin Management Portal**: Live statistics, instant search, class/payment filters, status updates, and direct CSV file download in browser without any server!
+```powershell
+python server.py
+```
+
+- **Main Website:** [http://localhost:8000/index.html](http://localhost:8000/index.html)
+- **Admin Portal:** [http://localhost:8000/admin.html](http://localhost:8000/admin.html)
+- **Stop Server:** Press <kbd>Ctrl</kbd> + <kbd>C</kbd> in your terminal.
 
 ---
 
-## 🛠️ Features Included
-- **Exact UI/UX Implementation**: Hero section, 10-day training vs 25-day project journeys, curriculum breakdown, prize structure (₹1,65,000 pool), and interactive FAQs.
-- **Student Registration System**: Full client and server-side validation for grades (Class 6 to Intermediate 2nd Year).
-- **Payment Gateway Ready**: Pre-configured hooks for Razorpay / UPI integration.
-- **Admin Management Portal**: Real-time stats, search, payment status toggling, and one-click CSV export.
+### Option 2: List Registered Users Directly in the Terminal
+
+You can view the list of all registered users without opening a browser:
+
+```powershell
+python server.py --list
+```
+
+This prints a clean formatted table:
+```
+=========================================================================================================
+REG ID           | STUDENT NAME       | CLASS           | MOBILE       | DISTRICT       | STATUS    
+=========================================================================================================
+DIP-2609-0101    | Aarav Sharma       | Class 10        | 9876543210   | Hyderabad      | Completed 
+DIP-2609-0102    | Ananya Reddy       | Intermediate 2nd Year | 9849012345 | Visakhapatnam  | Completed 
+DIP-2609-0103    | Rohan Varma        | Class 8         | 9123456789   | Vijayawada     | Pending   
+=========================================================================================================
+Total Registered Users: 3
+```
+
+---
+
+### Option 3: Directly from the Terminal (Static Mode)
+
+- **Windows Command Prompt (cmd):**
+  ```cmd
+  start index.html
+  ```
+- **PowerShell:**
+  ```powershell
+  Start-Process index.html
+  ```
+  *(or shortcut: `ii index.html`)*
+
+> **Note:** Launches directly in your browser using local storage for offline use. Closes simply by closing the browser tab.
+
+---
+
+## 🗄️ SQLite Database Details
+
+The database is stored in **[registrations.db](file:///c:/Users/tamar/Desktop/CICD/skill_development/registrations.db)** with the following table:
+
+```sql
+CREATE TABLE registrations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    registration_id TEXT UNIQUE NOT NULL,
+    student_name TEXT NOT NULL,
+    parent_name TEXT,
+    mobile TEXT NOT NULL,
+    email TEXT NOT NULL,
+    student_class TEXT NOT NULL,
+    school TEXT,
+    district TEXT,
+    project_interest TEXT,
+    registration_date TEXT,
+    payment_status TEXT DEFAULT 'Pending',
+    payment_amount INTEGER DEFAULT 499,
+    payment_id TEXT DEFAULT '',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+You can inspect or query it anytime using:
+- `python server.py --list`
+- Standard SQLite CLI: `sqlite3 registrations.db`
+- **DB Browser for SQLite** or the **SQLite Viewer** extension in VS Code.
+
+--- 
+
+## 🔐 Admin Portal Credentials
+
+- **URL:** [http://localhost:8000/admin.html](http://localhost:8000/admin.html) or `admin.html`
+- **Admin Passcode:** `dilshaj_admin_2026_secure`
+
+---
+
+## 🚀 Deployment Guide
+
+### Option 1: 1-Click Cloud Hosting (Render, Railway, Heroku)
+The project includes a `Procfile`, dynamic `PORT` binding, and zero external pip dependencies:
+1. Push this repository to GitHub.
+2. In **[Render.com](https://render.com)** or **[Railway.app](https://railway.app)**:
+   - Create a new **Web Service** and select your repository.
+   - **Build Command:** *(leave empty or `echo Done`)*
+   - **Start Command:** `python server.py`
+3. Your live application will be deployed instantly with both frontend and SQLite backend active.
+
+### Option 2: Linux VPS / Cloud VM (Ubuntu / AWS EC2 / DigitalOcean)
+```bash
+# Clone and enter directory
+git clone <repo-url> && cd <repo-dir>
+
+# Run using systemd or background process
+nohup python3 server.py > server.log 2>&1 &
+```
+
+### Option 3: Static Hosting (Vercel, Netlify, GitHub Pages)
+If you only want to host the frontend:
+- Upload the repository to Vercel, Netlify, or GitHub Pages.
+- Both registration and the admin portal have built-in `localStorage` offline fallbacks that run entirely client-side without a server.
