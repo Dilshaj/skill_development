@@ -284,6 +284,24 @@
     .admin-table tr:hover {
       background: rgba(160, 104, 61, 0.03);
     }
+    .mode-badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .mode-badge.offline {
+      background: var(--highlight-brown-tint);
+      color: var(--highlight-brown-dark);
+      border: 1px solid var(--highlight-brown-border);
+    }
+    .mode-badge.online {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
     .status-badge {
       display: inline-block;
       padding: 3px 8px;
@@ -455,6 +473,15 @@
                 </select>
               </div>
 
+              <div class="filter-group">
+                <label class="filter-group-label" for="filterMode">Training Mode</label>
+                <select id="filterMode" class="form-control" style="font-size: 0.88rem; padding: 8px 12px;">
+                  <option value="All">All Modes</option>
+                  <option value="Offline">Offline Training</option>
+                  <option value="Online">Online Training</option>
+                </select>
+              </div>
+
               <div class="filter-group" style="margin-bottom: 0;">
                 <label class="filter-group-label" for="filterClass">Class / Grade</label>
                 <select id="filterClass" class="form-control" style="font-size: 0.88rem; padding: 8px 12px;">
@@ -484,6 +511,7 @@
               <th>Reg ID</th>
               <th>Student Name</th>
               <th>Class</th>
+              <th>Mode</th>
               <th>Parent Name</th>
               <th>Mobile</th>
               <th>School / College</th>
@@ -494,7 +522,7 @@
           </thead>
           <tbody id="registrationsTbody">
             <tr>
-              <td colspan="9" style="text-align: center; color: var(--text-dim); padding: 30px;">Loading registrations...</td>
+              <td colspan="10" style="text-align: center; color: var(--text-dim); padding: 30px;">Loading registrations...</td>
             </tr>
           </tbody>
         </table>
@@ -556,6 +584,7 @@
             mobile: "9876543210",
             email: "aarav.sharma@example.com",
             student_class: "Class 10",
+            training_mode: "Offline",
             school: "Delhi Public School",
             district: "Hyderabad",
             registration_date: "2026-09-27",
@@ -570,6 +599,7 @@
             mobile: "9849012345",
             email: "ananya.reddy@example.com",
             student_class: "Intermediate 2nd Year",
+            training_mode: "Online",
             school: "Sri Chaitanya Junior College",
             district: "Visakhapatnam",
             registration_date: "2026-09-27",
@@ -584,6 +614,7 @@
             mobile: "9123456789",
             email: "rohan.v@example.com",
             student_class: "Class 8",
+            training_mode: "Offline",
             school: "Kendriya Vidyalaya",
             district: "Vijayawada",
             registration_date: "2026-09-27",
@@ -709,6 +740,9 @@
       // Filter dropdowns: instant filter on change
       document.getElementById('filterPayment').addEventListener('change', applyFiltersAndRender);
       document.getElementById('filterClass').addEventListener('change', applyFiltersAndRender);
+      if (document.getElementById('filterMode')) {
+        document.getElementById('filterMode').addEventListener('change', applyFiltersAndRender);
+      }
 
       // Popover Reset All button
       document.getElementById('popoverResetBtn').addEventListener('click', resetAllFilters);
@@ -778,6 +812,7 @@
       const search = (document.getElementById('searchInput').value || '').trim().toLowerCase();
       const cls = document.getElementById('filterClass').value;
       const payment = document.getElementById('filterPayment').value;
+      const mode = document.getElementById('filterMode') ? document.getElementById('filterMode').value : 'All';
 
       // Update active filters badge & chips
       let activeCount = 0;
@@ -796,6 +831,14 @@
         chips.push({
           type: 'class',
           label: `Class: ${cls}`
+        });
+      }
+
+      if (mode !== 'All') {
+        activeCount++;
+        chips.push({
+          type: 'mode',
+          label: `Mode: ${mode}`
         });
       }
 
@@ -833,7 +876,8 @@
           const mobile = (r.mobile || '').toLowerCase();
           const school = (r.school || '').toLowerCase();
           const district = (r.district || '').toLowerCase();
-          return id.includes(search) || name.includes(search) || parent.includes(search) || email.includes(search) || mobile.includes(search) || school.includes(search) || district.includes(search);
+          const trMode = (r.training_mode || r.trainingMode || '').toLowerCase();
+          return id.includes(search) || name.includes(search) || parent.includes(search) || email.includes(search) || mobile.includes(search) || school.includes(search) || district.includes(search) || trMode.includes(search);
         });
       }
 
@@ -845,6 +889,13 @@
           if (targetCls.includes('1st') && (c.includes('1st') || c.includes('11'))) return true;
           if (targetCls.includes('2nd') && (c.includes('2nd') || c.includes('12'))) return true;
           return c.includes(targetCls);
+        });
+      }
+
+      if (mode !== 'All') {
+        filtered = filtered.filter(r => {
+          const m = (r.training_mode || r.trainingMode || 'Offline').toLowerCase();
+          return m === mode.toLowerCase();
         });
       }
 
@@ -860,7 +911,7 @@
 
       const tbody = document.getElementById('registrationsTbody');
       if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--text-dim); padding: 30px;">No registrations found matching your criteria.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; color: var(--text-dim); padding: 30px;">No registrations found matching your criteria.</td></tr>';
         return;
       }
 
@@ -868,6 +919,7 @@
         const id = r.registration_id || r.registrationId;
         const name = r.student_name || r.studentName;
         const stClass = r.student_class || r.studentClass;
+        const modeVal = r.training_mode || r.trainingMode || 'Offline';
         const parent = r.parent_name || r.parentName;
         const status = r.payment_status || r.paymentStatus || 'Pending';
         const isPaid = status.toLowerCase() === 'completed' || status.toLowerCase() === 'paid';
@@ -877,6 +929,7 @@
             <td style="white-space: nowrap;"><strong style="color: var(--secondary); font-size: 0.8rem;">${id}</strong></td>
             <td><strong>${name}</strong><br><span style="color: var(--text-dim); font-size: 0.72rem;">${r.email}</span></td>
             <td>${stClass}</td>
+            <td style="white-space: nowrap;"><span class="mode-badge ${modeVal.toLowerCase()}">${modeVal}</span></td>
             <td>${parent}</td>
             <td style="white-space: nowrap;">${r.mobile}</td>
             <td>${r.school}</td>
@@ -900,12 +953,14 @@
     window.removeFilter = function(type) {
       if (type === 'payment') document.getElementById('filterPayment').value = 'All';
       if (type === 'class') document.getElementById('filterClass').value = 'All';
+      if (type === 'mode' && document.getElementById('filterMode')) document.getElementById('filterMode').value = 'All';
       applyFiltersAndRender();
     };
 
     window.resetAllFilters = function() {
       document.getElementById('filterPayment').value = 'All';
       document.getElementById('filterClass').value = 'All';
+      if (document.getElementById('filterMode')) document.getElementById('filterMode').value = 'All';
       applyFiltersAndRender();
     };
 
@@ -967,7 +1022,7 @@
 
       const headers = [
         "Registration ID", "Student Name", "Parent Name", "Mobile", "Email",
-        "Class", "School/College", "District",
+        "Class", "Training Mode", "School/College", "District",
         "Registration Date", "Payment Status", "Amount (INR)", "Payment Ref"
       ];
 
@@ -978,6 +1033,7 @@
         `"${r.mobile || ''}"`,
         `"${r.email || ''}"`,
         `"${r.student_class || r.studentClass || ''}"`,
+        `"${r.training_mode || r.trainingMode || 'Offline'}"`,
         `"${r.school || ''}"`,
         `"${r.district || ''}"`,
         `"${r.registration_date || r.registrationDate || ''}"`,

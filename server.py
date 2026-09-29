@@ -23,6 +23,7 @@ def init_db():
             student_class TEXT NOT NULL,
             school TEXT,
             district TEXT,
+            training_mode TEXT DEFAULT 'Offline',
             project_interest TEXT,
             registration_date TEXT,
             payment_status TEXT DEFAULT 'Pending',
@@ -33,6 +34,13 @@ def init_db():
     ''')
     conn.commit()
 
+    # Backward compatibility: ensure training_mode column exists in existing database
+    try:
+        cursor.execute("ALTER TABLE registrations ADD COLUMN training_mode TEXT DEFAULT 'Offline'")
+        conn.commit()
+    except sqlite3.OperationalError:
+        pass
+
     # Check if empty, populate initial sample data if so
     cursor.execute('SELECT COUNT(*) FROM registrations')
     count = cursor.fetchone()[0]
@@ -41,28 +49,28 @@ def init_db():
             (
                 "DIP-2609-0101", "Aarav Sharma", "Vikram Sharma", "9876543210",
                 "aarav.sharma@example.com", "Class 10", "Delhi Public School",
-                "Hyderabad", "Web & App Development", "2026-09-27", "Completed",
+                "Hyderabad", "Offline", "Web & App Development", "2026-09-27", "Completed",
                 499, "PAY-DEMO-948172"
             ),
             (
                 "DIP-2609-0102", "Ananya Reddy", "Srinivas Reddy", "9849012345",
                 "ananya.reddy@example.com", "Intermediate 2nd Year", "Sri Chaitanya Junior College",
-                "Visakhapatnam", "AI & Machine Learning", "2026-09-27", "Completed",
+                "Visakhapatnam", "Online", "AI & Machine Learning", "2026-09-27", "Completed",
                 499, "PAY-DEMO-449102"
             ),
             (
                 "DIP-2609-0103", "Rohan Varma", "Kishore Varma", "9123456789",
                 "rohan.v@example.com", "Class 8", "Kendriya Vidyalaya",
-                "Vijayawada", "Robotics & IoT", "2026-09-27", "Pending",
+                "Vijayawada", "Offline", "Robotics & IoT", "2026-09-27", "Pending",
                 499, ""
             )
         ]
         cursor.executemany('''
             INSERT INTO registrations (
                 registration_id, student_name, parent_name, mobile, email,
-                student_class, school, district, project_interest,
+                student_class, school, district, training_mode, project_interest,
                 registration_date, payment_status, payment_amount, payment_id
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', seed_data)
         conn.commit()
     conn.close()
@@ -133,9 +141,9 @@ class DilshajRequestHandler(http.server.SimpleHTTPRequestHandler):
                 cursor.execute('''
                     INSERT INTO registrations (
                         registration_id, student_name, parent_name, mobile, email,
-                        student_class, school, district, project_interest,
+                        student_class, school, district, training_mode, project_interest,
                         registration_date, payment_status, payment_amount, payment_id
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ''', (
                     payload.get('registration_id') or payload.get('registrationId'),
                     payload.get('student_name') or payload.get('studentName', ''),
@@ -145,6 +153,7 @@ class DilshajRequestHandler(http.server.SimpleHTTPRequestHandler):
                     payload.get('student_class') or payload.get('studentClass', ''),
                     payload.get('school', ''),
                     payload.get('district', ''),
+                    payload.get('training_mode') or payload.get('trainingMode', 'Offline'),
                     payload.get('project_interest') or payload.get('projectInterest', ''),
                     payload.get('registration_date') or payload.get('registrationDate', ''),
                     payload.get('payment_status') or payload.get('paymentStatus', 'Pending'),
@@ -205,16 +214,17 @@ def print_registered_users():
     init_db()
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT registration_id, student_name, student_class, mobile, email, district, payment_status FROM registrations ORDER BY id ASC')
+    cursor.execute('SELECT registration_id, student_name, student_class, training_mode, mobile, district, payment_status FROM registrations ORDER BY id ASC')
     rows = cursor.fetchall()
     conn.close()
 
-    print("\n" + "=" * 105)
-    print(f"{'REG ID':<16} | {'STUDENT NAME':<18} | {'CLASS':<15} | {'MOBILE':<12} | {'DISTRICT':<14} | {'STATUS':<10}")
-    print("=" * 105)
+    print("\n" + "=" * 115)
+    print(f"{'REG ID':<16} | {'STUDENT NAME':<18} | {'CLASS':<15} | {'MODE':<10} | {'MOBILE':<12} | {'DISTRICT':<14} | {'STATUS':<10}")
+    print("=" * 115)
     for r in rows:
-        print(f"{r['registration_id']:<16} | {r['student_name']:<18} | {r['student_class']:<15} | {r['mobile']:<12} | {r['district']:<14} | {r['payment_status']:<10}")
-    print("=" * 105)
+        mode_val = r['training_mode'] or 'Offline'
+        print(f"{r['registration_id']:<16} | {r['student_name']:<18} | {r['student_class']:<15} | {mode_val:<10} | {r['mobile']:<12} | {r['district']:<14} | {r['payment_status']:<10}")
+    print("=" * 115)
     print(f"Total Registered Users: {len(rows)}\n")
 
 if __name__ == '__main__':

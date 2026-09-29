@@ -151,6 +151,7 @@ function initRegistrationForm() {
     const studentClass = document.getElementById('studentClass').value;
     const school = document.getElementById('school').value.trim();
     const district = document.getElementById('district').value.trim();
+    const trainingMode = document.getElementById('trainingMode') ? document.getElementById('trainingMode').value : 'Offline';
 
     let hasErrors = false;
 
@@ -192,6 +193,11 @@ function initRegistrationForm() {
       hasErrors = true;
     }
 
+    if (!trainingMode) {
+      showError('trainingMode', 'Please select preferred training mode.');
+      hasErrors = true;
+    }
+
     if (hasErrors) {
       const firstError = document.querySelector('.form-control.error');
       if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -222,6 +228,8 @@ function initRegistrationForm() {
       studentClass: studentClass,
       school: school,
       district: district,
+      training_mode: trainingMode,
+      trainingMode: trainingMode,
       registration_date: regDate,
       registrationDate: regDate,
       payment_status: 'Pending',
@@ -282,10 +290,12 @@ function showSuccessModal(registration) {
   const regIdEl = document.getElementById('modalRegId');
   const nameEl = document.getElementById('modalStudentName');
   const classEl = document.getElementById('modalClass');
+  const modeEl = document.getElementById('modalTrainingMode');
 
-  if (regIdEl) regIdEl.textContent = registration.registrationId;
-  if (nameEl) nameEl.textContent = registration.studentName;
-  if (classEl) classEl.textContent = registration.studentClass;
+  if (regIdEl) regIdEl.textContent = registration.registration_id || registration.registrationId;
+  if (nameEl) nameEl.textContent = registration.student_name || registration.studentName;
+  if (classEl) classEl.textContent = registration.student_class || registration.studentClass;
+  if (modeEl) modeEl.textContent = (registration.training_mode || registration.trainingMode || 'Offline') + ' Training';
 
   modal.classList.add('active');
 }
