@@ -151,7 +151,7 @@ function initRegistrationForm() {
     const studentClass = document.getElementById('studentClass').value;
     const school = document.getElementById('school').value.trim();
     const district = document.getElementById('district').value.trim();
-    const projectInterest = document.getElementById('projectInterest').value;
+    const trainingMode = document.getElementById('trainingMode') ? document.getElementById('trainingMode').value : 'Offline';
 
     let hasErrors = false;
 
@@ -193,6 +193,11 @@ function initRegistrationForm() {
       hasErrors = true;
     }
 
+    if (!trainingMode) {
+      showError('trainingMode', 'Please select preferred training mode.');
+      hasErrors = true;
+    }
+
     if (hasErrors) {
       const firstError = document.querySelector('.form-control.error');
       if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -204,47 +209,56 @@ function initRegistrationForm() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Processing Registration...</span>';
 
-    setTimeout(() => {
-      // Generate Unique Registration ID
-      const dateCode = new Date().toISOString().slice(2, 7).replace('-', '');
-      const randomSeq = Math.floor(1000 + Math.random() * 9000);
-      const regId = `DIP-${dateCode}-${randomSeq}`;
-      const regDate = new Date().toISOString().slice(0, 10);
+    // Generate Unique Registration ID
+    const dateCode = new Date().toISOString().slice(2, 7).replace('-', '');
+    const randomSeq = Math.floor(1000 + Math.random() * 9000);
+    const regId = `DIP-${dateCode}-${randomSeq}`;
+    const regDate = new Date().toISOString().slice(0, 10);
 
-      const regRecord = {
-        registration_id: regId,
-        registrationId: regId,
-        student_name: studentName,
-        studentName: studentName,
-        parent_name: parentName,
-        parentName: parentName,
-        mobile: validMobile,
-        email: email,
-        student_class: studentClass,
-        studentClass: studentClass,
-        school: school,
-        district: district,
-        project_interest: projectInterest,
-        projectInterest: projectInterest,
-        registration_date: regDate,
-        registrationDate: regDate,
-        payment_status: 'Pending',
-        paymentStatus: 'Pending',
-        payment_amount: 499,
-        fee: 499,
-        payment_id: ''
-      };
+    const regRecord = {
+      registration_id: regId,
+      registrationId: regId,
+      student_name: studentName,
+      studentName: studentName,
+      parent_name: parentName,
+      parentName: parentName,
+      mobile: validMobile,
+      email: email,
+      student_class: studentClass,
+      studentClass: studentClass,
+      school: school,
+      district: district,
+      training_mode: trainingMode,
+      trainingMode: trainingMode,
+      registration_date: regDate,
+      registrationDate: regDate,
+      payment_status: 'Pending',
+      paymentStatus: 'Pending',
+      payment_amount: 499,
+      fee: 499,
+      payment_id: ''
+    };
 
-      // Save to client-side localStorage
-      saveRegistrationLocal(regRecord);
+    // Save to client-side localStorage fallback
+    saveRegistrationLocal(regRecord);
 
+    // Send to backend SQLite server
+    fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(regRecord)
+    })
+    .catch(err => {
+      console.warn('Backend server offline or unreachable, saved locally:', err);
+    })
+    .finally(() => {
       // Show Success Modal
       showSuccessModal(regRecord);
       regForm.reset();
 
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
-    }, 400);
+    });
   });
 }
 
@@ -267,52 +281,23 @@ function clearErrors() {
 }
 
 /* ----------------------------------------------------
-   5. Success Modal & Pure Static Payment Flow
+   5. Success Modal (Registration Confirmation)
    ---------------------------------------------------- */
 function showSuccessModal(registration) {
   const modal = document.getElementById('successModal');
   if (!modal) return;
 
-  document.getElementById('modalRegId').textContent = registration.registrationId;
-  document.getElementById('modalStudentName').textContent = registration.studentName;
-  document.getElementById('modalClass').textContent = registration.studentClass;
-  document.getElementById('modalAmount').textContent = `₹${registration.fee}`;
-  
-  const paymentBtn = document.getElementById('proceedPaymentBtn');
-  if (paymentBtn) {
-    paymentBtn.onclick = () => handlePaymentProcess(registration);
-  }
+  const regIdEl = document.getElementById('modalRegId');
+  const nameEl = document.getElementById('modalStudentName');
+  const classEl = document.getElementById('modalClass');
+  const modeEl = document.getElementById('modalTrainingMode');
+
+  if (regIdEl) regIdEl.textContent = registration.registration_id || registration.registrationId;
+  if (nameEl) nameEl.textContent = registration.student_name || registration.studentName;
+  if (classEl) classEl.textContent = registration.student_class || registration.studentClass;
+  if (modeEl) modeEl.textContent = (registration.training_mode || registration.trainingMode || 'Offline') + ' Training';
 
   modal.classList.add('active');
-}
-
-function handlePaymentProcess(registration) {
-  const paymentBtn = document.getElementById('proceedPaymentBtn');
-  paymentBtn.disabled = true;
-  paymentBtn.innerHTML = "<span>Processing Payment...</span>";
-  
-  setTimeout(() => {
-    const mockPayId = "PAY-DEMO-" + Math.floor(100000 + Math.random() * 900000);
-    updateRegistrationStatusLocal(registration.registrationId, 'Completed', mockPayId);
-    updateModalToPaid(registration.registrationId, mockPayId);
-  }, 800);
-}
-
-function updateModalToPaid(regId, paymentId) {
-  const statusContainer = document.getElementById('modalStatusBox');
-  if (statusContainer) {
-    statusContainer.innerHTML = `
-      <div style="text-align: center; padding: 15px 0;">
-        <div style="font-size: 3rem; margin-bottom: 8px;">🎉</div>
-        <h3 style="color: #10b981; margin-bottom: 6px;">Payment Confirmed!</h3>
-        <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 12px;">Your seat for Dilshaj Infotech Skill Development Program has been reserved.</p>
-        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 12px; border-radius: 8px; font-size: 0.88rem;">
-          <div><strong>Payment Ref:</strong> ${paymentId}</div>
-          <div><strong>Status:</strong> Confirmed & Enrolled</div>
-        </div>
-      </div>
-    `;
-  }
 }
 
 function initModalCloseHandlers() {
