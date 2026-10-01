@@ -1,60 +1,152 @@
-# Dilshaj Infotech - Skill Development Program Website
+# Dilshaj Infotech - Skill Development Program
 
-A fast, responsive, and modern static website for the **Dilshaj Infotech Skill Development Program**.
-
-Student registrations are handled seamlessly through official Google Forms, with responses organized directly into Google Sheets.
+> A modern, responsive landing and registration portal for the **Dilshaj Infotech Skill Development Program** — empowering school, intermediate, and college students with practical web development skills and hands-on project experience.
 
 ---
 
-## 📁 Project Structure
+## 📌 Program Overview
+
+The **Dilshaj Infotech Skill Development Program** is a structured **35-day journey** designed to take students from absolute basics to building and deploying functional web applications. 
+
+The program combines **21 days of offline classroom training** (1 hour/day) followed by a **14-day mentor-guided project-building phase**, culminating in a project showcase and grand prize distribution.
+
+### 🌟 Key Highlights
+
+- **100% Offline Classroom Training**: Hands-on sessions at the Dilshaj Infotech Training Center with experienced instructors, live practicals, and personal doubt clarification.
+- **Student-Friendly Timings**: 1-hour daily sessions scheduled conveniently after school and college hours.
+- **Web Development Focus**: Practical mastery in HTML5, CSS3, Modern JavaScript, and Responsive Web Design (no theoretical rote learning; no full-stack/backend clutter).
+- **14-Day Mentored Project Building**: Students build a real-world, functional web application with continuous guidance and code reviews.
+- **Combined Prize Pool**: **Up to ₹3,75,000** in cash awards, trophies, and perks across both tracks.
+- **Affordable Registration Fee**: Only **₹499** one-time fee per student (includes training, project mentorship, study kit, and official MSME & AICTE recognized certificate).
+- **MSME & AICTE Recognized Certification**: Every student who completes the training and submits their project receives an official, verifiable certificate recognized under **MSME (Govt. of India)** and **AICTE** frameworks, providing high value for academic and career advancement.
+
+---
+
+## 🎓 Academic Tracks & Prize Breakdown
+
+The program is split into two specialized academic tracks tailored to students' educational levels:
+
+### 1. School & Intermediate Track
+- **Eligibility**: Students from **Class 6th through Intermediate 2nd Year (Class 12)**.
+- **Curriculum Focus**: Web fundamentals, logic building, semantic HTML5, styling with CSS3, interactive JavaScript, and mobile-friendly responsive design.
+- **Certification**: Official **MSME & AICTE Recognized Certificate**.
+- **Total Prize Pool**: **₹2,00,000**
+  - 🥇 **1st Prize**: ₹50,000 Cash + Winner Trophy & MSME/AICTE Certificate of High Distinction
+  - 🥈 **2nd Prize**: ₹30,000 Cash + Runner-Up Trophy & MSME/AICTE Certificate of Excellence
+  - 🥉 **3rd Prize**: ₹20,000 Cash + 2nd Runner-Up Trophy & MSME/AICTE Certificate of Excellence
+  - Up to ₹1,00,000 in top cash awards + merit trophies, perks, and participation certificates.
+
+### 2. College & Degree Track
+- **Eligibility**: **B.Tech, B.E., BCA, MCA, B.Sc, Diploma, and all UG/PG Degree students**.
+- **Curriculum Focus**: Advanced web UI architecture, modern ES6+ JavaScript, event-driven state handling, DOM manipulation, responsive layouts, and portfolio-worthy project deployment.
+- **Certification**: Official **MSME & AICTE Recognized Certificate**.
+- **Total Prize Pool**: **₹1,75,000**
+  - 🥇 **1st Prize**: ₹1,00,000 Cash + Winner Trophy & MSME/AICTE Certificate of High Distinction
+  - 🥈 **2nd Prize**: ₹50,000 Cash + Runner-Up Trophy & MSME/AICTE Certificate of Excellence
+  - 🥉 **3rd Prize**: ₹25,000 Cash + 2nd Runner-Up Trophy & MSME/AICTE Certificate of Excellence
+  - Internship opportunities at Dilshaj Infotech for top performers.
+
+---
+
+## 🗺️ Program Roadmap
+
+### Phase 1: 21-Day Offline Classroom Training (1 Hr / Day)
+- **Days 01–03**: Orientation, Web Architecture & Semantic HTML5
+- **Days 04–07**: Modern CSS3, Flexbox & Responsive Layouts
+- **Days 08–11**: JavaScript Fundamentals & DOM Manipulation
+- **Days 12–15**: Event Handling, User Interactivity & Form Validation
+- **Days 16–18**: State Management & Client-Side Logic
+- **Days 19–21**: Project Wireframing, Architecture & Final Preparation
+
+### Phase 2: 14-Day Mentored Project Building
+- **Days 01–03**: Problem Statement Definition & Wireframe Approval
+- **Days 04–08**: Core UI & Layout Implementation
+- **Days 09–11**: JavaScript Interactivity & Logic Integration
+- **Days 12–13**: Testing, Responsive Polish & Mentor Code Reviews
+- **Day 14**: Final Project Showcase, Jury Evaluation & Grand Awards Ceremony
+
+---
+
+## 📁 Repository Structure
 
 ```
 skill_development/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml      # Automated GitHub Actions deployment workflow
 ├── css/
-│   └── style.css       # Responsive CSS design system & DR branding
+│   └── style.css           # Custom responsive CSS design system & typography
 ├── js/
-│   └── app.js          # Interactive UI logic (navbar, drawer, FAQ accordion, tabs)
-├── index.html          # Main landing and student registration page
-└── README.md
+│   └── app.js              # Interactive UI logic (tabs, drawer, FAQ accordion)
+├── images/                 # Program assets & visuals
+├── index.html              # Main landing & registration page
+├── .gitignore              # Git ignore rules
+└── README.md               # Project documentation
 ```
+
+---
+
+## 🛠️ Technology Stack (Website)
+
+- **Frontend**: Semantic HTML5 & Modern Vanilla CSS3 (Custom design tokens, CSS Grid, Flexbox, responsive typography, and glassmorphism styling).
+- **Interactivity**: Vanilla JavaScript (ES6+) for tab navigation, responsive mobile drawer, animated FAQ accordions, and smooth anchor scrolling.
+- **Registration Pipeline**: Direct integration with official track-specific Google Forms, capturing student submissions seamlessly into organized Google Sheets.
+- **Zero Runtime Dependencies**: Ultra-fast load times with pure native web standards.
 
 ---
 
 ## 🚀 How to Run Locally
 
-Since this is a 100% static frontend application, you can view and test it instantly without needing Python, Node.js, or any database:
+Because this project is built entirely with standard web technologies, no build tools, bundlers, or package managers are required:
 
-### Option 1: Open Directly in Browser
-- **Windows Command Prompt (cmd):**
+### Option 1: Direct File Launch
+- **Windows (cmd)**:
   ```cmd
   start index.html
   ```
-- **PowerShell:**
+- **PowerShell**:
   ```powershell
   Start-Process index.html
   ```
-  *(or simply double-click `index.html` in File Explorer)*
+- Or simply double-click `index.html` in your file explorer.
 
-### Option 2: Run with Any Lightweight Local Server (Optional)
-If you prefer a local HTTP server:
-- **VS Code:** Right-click `index.html` and choose **"Open with Live Server"**.
-- **Python:** `python -m http.server 8000`
-- **Node.js:** `npx serve .`
-
----
-
-## 📋 Registration Process
-Registration is partitioned into two clear academic tracks via Google Forms:
-1. **School & Inter Track (Class 6th to Intermediate 2nd Year)**
-2. **College & Degree Track (UG & PG Degree Students)**
-
-All candidate submissions, contact details, and preferences are automatically recorded in real-time in your linked Google Forms / Google Sheets.
+### Option 2: Local HTTP Server (Recommended)
+- **Python 3**:
+  ```bash
+  python -m http.server 8080
+  ```
+  Then visit `http://localhost:8080` in your web browser.
+- **VS Code**: Right-click `index.html` and choose **"Open with Live Server"**.
+- **Node.js**:
+  ```bash
+  npx serve .
+  ```
 
 ---
 
-## 🌐 Deployment
-This static website can be deployed anywhere with zero server configuration:
-* **GitHub Pages**
-* **Vercel / Netlify / Cloudflare Pages**
-* **AWS EC2 (Nginx / Apache)**
-* **AWS S3 + CloudFront**
+## 📋 Student Registration Workflow
+
+1. Students select their eligible academic track on the landing page:
+   - **School & Inter Track (Class 6th – Inter 2nd Year)**
+   - **College & Degree Track (UG / PG / Diploma)**
+2. Clicking **"Register for Track"** opens the dedicated Google Registration Form.
+3. Form submissions are logged in real-time to Google Sheets for admissions verification.
+4. Nominal ₹499 registration fee is completed as per the instructions in the registration form.
+
+---
+
+## 🌐 Deployment & CI/CD
+
+The website is configured with a GitHub Actions workflow (`.github/workflows/deploy.yml`) and can be hosted seamlessly on:
+- **GitHub Pages**
+- **Vercel / Netlify / Cloudflare Pages**
+- **AWS S3 + CloudFront / EC2 (Nginx)**
+
+---
+
+## 📞 Contact & Support
+
+**Dilshaj Infotech Skill Development Center**  
+- **Location**: Dilshaj Infotech Training Center  
+- **Mode**: 100% Offline Classroom Training  
+- **Website**: [Dilshaj Infotech Skill Development](index.html)
