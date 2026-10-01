@@ -28,17 +28,34 @@ function initNavbar() {
   });
 
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
+    const closeDrawer = () => {
+      mobileDrawer.classList.remove('open');
+      mobileToggle.textContent = '☰';
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = mobileDrawer.classList.toggle('open');
       mobileToggle.textContent = isOpen ? '✕' : '☰';
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.textContent = '☰';
-      });
+    const drawerElements = mobileDrawer.querySelectorAll('a, button');
+    drawerElements.forEach(el => {
+      el.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (mobileDrawer.classList.contains('open') && !mobileDrawer.contains(e.target) && e.target !== mobileToggle) {
+        closeDrawer();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        closeDrawer();
+      }
     });
   }
 }
