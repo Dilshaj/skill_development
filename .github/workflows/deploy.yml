@@ -3,7 +3,7 @@ name: Deploy Skill Development
 on:
   push:
     branches:
-      - feature/ganesh
+      - main
 
   workflow_dispatch:
 
