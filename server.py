@@ -234,6 +234,8 @@ if __name__ == '__main__':
         sys.exit(0)
 
     init_db()
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     server_address = ('', PORT)
     print(f"🚀 Dilshaj Infotech SQLite Server running at http://localhost:{PORT}")
     print(f"📂 SQLite Database: {DB_FILE}")

@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initFaqAccordion();
   initJourneyTabs();
+  initPrizeTabs();
   initRegistrationForm();
   initModalCloseHandlers();
 });
@@ -120,6 +121,26 @@ function initJourneyTabs() {
 
       tabBtns.forEach(b => b.classList.remove('active'));
       timelineViews.forEach(view => view.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetView = document.getElementById(targetId);
+      if (targetView) {
+        targetView.classList.add('active');
+      }
+    });
+  });
+}
+
+function initPrizeTabs() {
+  const prizeTabBtns = document.querySelectorAll('.prize-tab-btn');
+  const prizeViews = document.querySelectorAll('.prize-view');
+
+  prizeTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-prize-target');
+
+      prizeTabBtns.forEach(b => b.classList.remove('active'));
+      prizeViews.forEach(view => view.classList.remove('active'));
 
       btn.classList.add('active');
       const targetView = document.getElementById(targetId);
