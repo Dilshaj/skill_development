@@ -2046,3 +2046,47 @@ a {
   width: 100%;
   justify-content: center;
 }
+
+/* ===================================================================
+   FontAwesome Icon Styling & Color Enhancements
+   =================================================================== */
+.fb-icon i {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.stat-icon i {
+  color: var(--primary);
+}
+
+.card-icon-box i {
+  font-size: 1.4rem;
+}
+
+.prize-trophy.gold-trophy {
+  color: #F59E0B;
+}
+
+.prize-trophy.silver-trophy {
+  color: #94A3B8;
+}
+
+.prize-trophy.bronze-trophy {
+  color: #D97706;
+}
+
+.prize-perks li span i {
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.module-list li span.check i {
+  color: var(--accent-pink);
+  font-size: 0.88rem;
+}
+
+.footer-contact-item i {
+  color: var(--primary);
+  width: 18px;
+  text-align: center;
+}

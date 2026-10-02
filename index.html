@@ -25,6 +25,7 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='bg' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ffd8e6'/><stop offset='100%' stop-color='%23faa2ca'/></linearGradient><linearGradient id='dGrad' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%2300c0ff'/><stop offset='100%' stop-color='%230052cc'/></linearGradient><linearGradient id='rGrad' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%23ff409f'/><stop offset='100%' stop-color='%23b8004f'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='url(%23bg)'/><text x='33%' y='68%' font-size='52' font-weight='900' font-family='sans-serif' fill='url(%23dGrad)' text-anchor='middle'>D</text><text x='69%' y='68%' font-size='52' font-weight='900' font-family='sans-serif' fill='url(%23rGrad)' text-anchor='middle'>R</text></svg>">
 
   <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -58,7 +59,7 @@
       </div>
 
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        ☰
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
 
@@ -91,13 +92,16 @@
             </h1>
 
             <p class="hero-subtitle">
-              Dilshaj Infotech presents an intensive, hands-on <strong>Skill Development Program</strong> with <strong>MSME & AICTE Recognized Certification</strong>. Master real-world practical tech skills in a flexible <strong>21 Days Offline / 21 Days Online</strong> training format, followed by a 14-day mentored project journey with <strong>up to ₹5,00,000 in Total Prize Pools</strong> across tracks.
+              Dilshaj Infotech presents an intensive, hands-on <strong>Skill Development Program</strong> with
+              <strong>MSME & AICTE Recognized Certification</strong>. Master real-world practical tech skills in a
+              flexible <strong>21 Days Offline / 21 Days Online</strong> training format, followed by a 14-day mentored
+              project journey with <strong>up to ₹5,00,000 in Total Prize Pools</strong> across tracks.
             </p>
 
             <div class="hero-cta-group">
               <a href="#register" class="btn btn-gold btn-lg pulse-glow" id="heroRegisterBtn">
                 <span>Register Now – From ₹499</span>
-                <span style="font-size: 1.2rem;">→</span>
+                <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i>
               </a>
               <a href="#curriculum" class="btn btn-outline btn-lg" id="heroExploreBtn">
                 <span>Explore Curriculum</span>
@@ -111,7 +115,7 @@
                 class="hero-image" loading="eager" width="800" height="600">
 
               <div class="floating-badge badge-top-left">
-                <span class="fb-icon">⚡</span>
+                <span class="fb-icon"><i class="fa-solid fa-laptop-code"></i></span>
                 <div class="fb-text">
                   <strong>Practical Learning</strong>
                   <small>21 Days Offline / Online</small>
@@ -119,7 +123,7 @@
               </div>
 
               <div class="floating-badge badge-bottom-right">
-                <span class="fb-icon">🏆</span>
+                <span class="fb-icon"><i class="fa-solid fa-trophy"></i></span>
                 <div class="fb-text">
                   <strong>Up to ₹5,00,000</strong>
                   <small>Combined Prize Pools</small>
@@ -132,32 +136,32 @@
         <!-- Highlight Stat Cards -->
         <div class="hero-highlights-grid">
           <div class="hero-stat-card">
-            <span class="stat-icon">🏆</span>
+            <span class="stat-icon"><i class="fa-solid fa-trophy"></i></span><br>
             <div class="stat-value gold-gradient-text">Up to ₹5,00,000</div>
             <div class="stat-label">Total Prize Pool (Combined)</div>
           </div>
           <div class="hero-stat-card">
-            <span class="stat-icon">🏫</span>
+            <span class="stat-icon"><i class="fa-solid fa-school"></i></span>
             <div class="stat-value">21 Days</div>
             <div class="stat-label">Offline / Online (1 Hr/Day)</div>
           </div>
           <div class="hero-stat-card">
-            <span class="stat-icon">🛠️</span>
+            <span class="stat-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
             <div class="stat-value">14 Days</div>
             <div class="stat-label">Project-Building Period</div>
           </div>
           <div class="hero-stat-card">
-            <span class="stat-icon">🎓</span>
+            <span class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></span>
             <div class="stat-value">Class 6th – UG/PG</div>
             <div class="stat-label">School & College Students</div>
           </div>
           <div class="hero-stat-card">
-            <span class="stat-icon">📜</span>
+            <span class="stat-icon"><i class="fa-solid fa-scroll"></i></span>
             <div class="stat-value">MSME & AICTE</div>
             <div class="stat-label">Recognized Certificates</div>
           </div>
           <div class="hero-stat-card">
-            <span class="stat-icon">💳</span>
+            <span class="stat-icon"><i class="fa-solid fa-credit-card"></i></span>
             <div class="stat-value">₹499 / ₹999</div>
             <div class="stat-label">Track 1: ₹499 | Track 2: ₹999</div>
           </div>
@@ -171,44 +175,57 @@
         <div class="section-header">
           <span class="section-tag">Program Overview</span>
           <h2 class="section-title">Everything You Need to Know</h2>
-          <p class="section-desc">A structured 35-day hands-on journey in web development — 21 days of offline classroom or live online training followed by 14 days of mentor-guided project building across two dedicated student tracks.</p>
+          <p class="section-desc">A structured 35-day hands-on journey in web development — 21 days of offline classroom
+            or live online training followed by 14 days of mentor-guided project building across two dedicated student
+            tracks.</p>
         </div>
 
         <div class="overview-grid">
           <div class="overview-card">
-            <div class="card-icon-box">🎯</div>
+            <div class="card-icon-box"><i class="fa-solid fa-bullseye"></i></div>
             <h3 class="overview-title">Two Dedicated Tracks</h3>
-            <p class="overview-detail">Open for <strong>School & Inter Track</strong> (Class 6 to Inter 2nd Year) and <strong>College & Degree Track</strong> (B.Tech, Degree, MCA, B.Sc & Diploma). No prior coding experience required.</p>
+            <p class="overview-detail">Open for <strong>School & Inter Track</strong> (Class 6 to Inter 2nd Year) and
+              <strong>College & Degree Track</strong> (B.Tech, Degree, MCA, B.Sc & Diploma). No prior coding experience
+              required.</p>
           </div>
 
           <div class="overview-card">
-            <div class="card-icon-box cyan">📍</div>
+            <div class="card-icon-box cyan"><i class="fa-solid fa-location-dot"></i></div>
             <h3 class="overview-title">Mode: Offline / Online</h3>
-            <p class="overview-detail">Flexible learning: Choose <strong>21 Days Offline Classroom Training</strong> at Dilshaj Infotech Training Center (with dedicated computer labs) or <strong>21 Days Live Online Training</strong>.</p>
+            <p class="overview-detail">Flexible learning: Choose <strong>21 Days Offline Classroom Training</strong> at
+              Dilshaj Infotech Training Center (with dedicated computer labs) or <strong>21 Days Live Online
+                Training</strong>.</p>
           </div>
 
           <div class="overview-card">
-            <div class="card-icon-box emerald">⏱️</div>
+            <div class="card-icon-box emerald"><i class="fa-solid fa-clock"></i></div>
             <h3 class="overview-title">21-Day Training</h3>
-            <p class="overview-detail"><strong>21 Days of practical web development</strong> (HTML5, CSS3, JavaScript) in <strong>Offline or Online mode</strong> with comfortable <strong>1-hour daily sessions</strong> scheduled after school/college hours.</p>
+            <p class="overview-detail"><strong>21 Days of practical web development</strong> (HTML5, CSS3, JavaScript)
+              in <strong>Offline or Online mode</strong> with comfortable <strong>1-hour daily sessions</strong>
+              scheduled after school/college hours.</p>
           </div>
 
           <div class="overview-card">
-            <div class="card-icon-box gold">🚀</div>
+            <div class="card-icon-box gold"><i class="fa-solid fa-rocket"></i></div>
             <h3 class="overview-title">14-Day Project Building</h3>
-            <p class="overview-detail">After training, students spend <strong>14 days building a live, functional web application</strong> with continuous mentor guidance and structured code reviews.</p>
+            <p class="overview-detail">After training, students spend <strong>14 days building a live, functional web
+                application</strong> with continuous mentor guidance and structured code reviews.</p>
           </div>
 
           <div class="overview-card">
-            <div class="card-icon-box gold">🏆</div>
+            <div class="card-icon-box gold"><i class="fa-solid fa-trophy"></i></div>
             <h3 class="overview-title">Up to ₹5,00,000 Prizes</h3>
-            <p class="overview-detail">Exciting rewards across tracks: <strong>₹2,00,000 pool</strong> for School & Inter (Top prizes: ₹50K, ₹30K, ₹20K) and <strong>₹3,00,000 pool</strong> for College track (Top prizes: ₹1L, ₹50K, ₹25K + ₹1.25L gifts for top 100 students).</p>
+            <p class="overview-detail">Exciting rewards across tracks: <strong>₹2,00,000 pool</strong> for School &
+              Inter (Top prizes: ₹50K, ₹30K, ₹20K) and <strong>₹3,00,000 pool</strong> for College track (Top prizes:
+              ₹1L, ₹50K, ₹25K + ₹1.25L gifts for top 100 students).</p>
           </div>
 
           <div class="overview-card">
-            <div class="card-icon-box emerald">📜</div>
+            <div class="card-icon-box emerald"><i class="fa-solid fa-scroll"></i></div>
             <h3 class="overview-title">Certification & Fee</h3>
-            <p class="overview-detail">Affordable fee: <strong>₹499 for Track 1</strong> (School/Inter) & <strong>₹999 for Track 2</strong> (College) covering 35 days training, mentoring, evaluation, and verified <strong>MSME & AICTE Recognized Certificates</strong>.</p>
+            <p class="overview-detail">Affordable fee: <strong>₹499 for Track 1</strong> (School/Inter) & <strong>₹999
+                for Track 2</strong> (College) covering 35 days training, mentoring, evaluation, and verified
+              <strong>MSME & AICTE Recognized Certificates</strong>.</p>
           </div>
         </div>
       </div>
@@ -233,9 +250,9 @@
             <h3 class="module-title">Foundations of Computational Thinking</h3>
             <p class="overview-detail">Master logic building, algorithmic decomposition, and debugging fundamentals.</p>
             <ul class="module-list">
-              <li><span class="check">✓</span> Logical thinking & pseudo-code frameworks</li>
-              <li><span class="check">✓</span> How the Internet and modern software work</li>
-              <li><span class="check">✓</span> Problem-solving workflows and patterns</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Logical thinking & pseudo-code frameworks</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> How the Internet and modern software work</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Problem-solving workflows and patterns</li>
             </ul>
           </div>
 
@@ -247,9 +264,9 @@
             <h3 class="module-title">Modern Web & UI Construction</h3>
             <p class="overview-detail">Craft visually stunning, interactive, and responsive web user interfaces.</p>
             <ul class="module-list">
-              <li><span class="check">✓</span> Semantic HTML5 & Modern CSS styling</li>
-              <li><span class="check">✓</span> Responsive design across mobile and desktop</li>
-              <li><span class="check">✓</span> UI components, cards, navigation & animations</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Semantic HTML5 & Modern CSS styling</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Responsive design across mobile and desktop</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> UI components, cards, navigation & animations</li>
             </ul>
           </div>
 
@@ -262,9 +279,9 @@
             <p class="overview-detail">Breathe life into interfaces with dynamic client-side scripting and state
               handling.</p>
             <ul class="module-list">
-              <li><span class="check">✓</span> JavaScript fundamentals & event listeners</li>
-              <li><span class="check">✓</span> DOM manipulation & real-time interactivity</li>
-              <li><span class="check">✓</span> Form validation & interactive app logic</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> JavaScript fundamentals & event listeners</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> DOM manipulation & real-time interactivity</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Form validation & interactive app logic</li>
             </ul>
           </div>
 
@@ -274,11 +291,12 @@
               <span class="module-num">04</span>
             </div>
             <h3 class="module-title">Real-World Web Project Building</h3>
-            <p class="overview-detail">Apply all skills to build functional, portfolio-worthy web applications from scratch.</p>
+            <p class="overview-detail">Apply all skills to build functional, portfolio-worthy web applications from
+              scratch.</p>
             <ul class="module-list">
-              <li><span class="check">✓</span> Multi-page website construction</li>
-              <li><span class="check">✓</span> Working with external data & local storage</li>
-              <li><span class="check">✓</span> Debugging, testing & cross-browser compatibility</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Multi-page website construction</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Working with external data & local storage</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Debugging, testing & cross-browser compatibility</li>
             </ul>
           </div>
 
@@ -291,9 +309,9 @@
             <p class="overview-detail">Formulate original project ideas and organize architecture for rapid building.
             </p>
             <ul class="module-list">
-              <li><span class="check">✓</span> Idea validation & feature scoping</li>
-              <li><span class="check">✓</span> Wireframing & rapid visual layout</li>
-              <li><span class="check">✓</span> Git version control & project hygiene</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Idea validation & feature scoping</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Wireframing & rapid visual layout</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Git version control & project hygiene</li>
             </ul>
           </div>
 
@@ -305,9 +323,9 @@
             <h3 class="module-title">Demo Day Pitch & Presentation</h3>
             <p class="overview-detail">Learn to communicate your tech product to judges, investors, and peers.</p>
             <ul class="module-list">
-              <li><span class="check">✓</span> Crafting compelling pitch decks</li>
-              <li><span class="check">✓</span> Live demo delivery & handling Q&A</li>
-              <li><span class="check">✓</span> Presenting your project for grand prize awards</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Crafting compelling pitch decks</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Live demo delivery & handling Q&A</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Presenting your project for grand prize awards</li>
             </ul>
           </div>
         </div>
@@ -325,7 +343,8 @@
         </div>
 
         <div class="timeline-tabs">
-          <button class="tab-btn active" data-target="trainingJourney" id="tabTraining">21-Day Training (Offline / Online)</button>
+          <button class="tab-btn active" data-target="trainingJourney" id="tabTraining">21-Day Training (Offline /
+            Online)</button>
           <button class="tab-btn" data-target="projectJourney" id="tabProject">14-Day Project Period</button>
         </div>
 
@@ -335,32 +354,38 @@
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 01 - 03</span>
               <h4>Kickoff & Core Logic</h4>
-              <p>Orientation, computational thinking, algorithms, problem-solving patterns, and setting up the coding workspace.</p>
+              <p>Orientation, computational thinking, algorithms, problem-solving patterns, and setting up the coding
+                workspace.</p>
             </div>
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 04 - 07</span>
               <h4>HTML5 & Modern CSS</h4>
-              <p>Semantic HTML5 structure, modern CSS layouts, Flexbox, Grid, responsive design, and styling fundamentals.</p>
+              <p>Semantic HTML5 structure, modern CSS layouts, Flexbox, Grid, responsive design, and styling
+                fundamentals.</p>
             </div>
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 08 - 11</span>
               <h4>JavaScript & Interactivity</h4>
-              <p>JavaScript fundamentals, DOM manipulation, event handling, form validation, and building interactive UI components.</p>
+              <p>JavaScript fundamentals, DOM manipulation, event handling, form validation, and building interactive UI
+                components.</p>
             </div>
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 12 - 15</span>
               <h4>Real-World Web Projects</h4>
-              <p>Multi-page websites, local storage, debugging techniques, cross-browser testing, and working with external data.</p>
+              <p>Multi-page websites, local storage, debugging techniques, cross-browser testing, and working with
+                external data.</p>
             </div>
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 16 - 19</span>
               <h4>Project Engineering & Prototyping</h4>
-              <p>Idea validation, wireframing, rapid layout building, Git version control, and structuring project architecture.</p>
+              <p>Idea validation, wireframing, rapid layout building, Git version control, and structuring project
+                architecture.</p>
             </div>
             <div class="timeline-card">
               <span class="timeline-day-pill">Day 20 - 21</span>
               <h4>Pitch Prep & Project Kickoff</h4>
-              <p>Crafting pitch decks, finalizing project themes, mentor review, blueprint approvals, and hackathon kickoff.</p>
+              <p>Crafting pitch decks, finalizing project themes, mentor review, blueprint approvals, and hackathon
+                kickoff.</p>
             </div>
           </div>
         </div>
@@ -392,7 +417,8 @@
               <span class="timeline-day-pill"
                 style="background: var(--highlight-brown-tint); color: var(--highlight-brown-dark);">Day 14</span>
               <h4>Grand Evaluation & Awards</h4>
-              <p>Live demo presentation before the jury, announcing winners, and awarding up to ₹5,00,000 in prize pools & awards!</p>
+              <p>Live demo presentation before the jury, announcing winners, and awarding up to ₹5,00,000 in prize pools
+                & awards!</p>
             </div>
           </div>
         </div>
@@ -405,16 +431,17 @@
         <div class="section-header">
           <span class="section-tag">Grand Cash Prize Pools</span>
           <h2 class="section-title">Compete & Win Big</h2>
-          <p class="section-desc">Up to ₹5,00,000 in combined prize pools! We reward hard work, technical creativity, and outstanding project execution with separate prize categories for School & College students.</p>
+          <p class="section-desc">Up to ₹5,00,000 in combined prize pools! We reward hard work, technical creativity,
+            and outstanding project execution with separate prize categories for School & College students.</p>
         </div>
 
         <!-- Prize Category Tabs -->
         <div class="prize-tabs">
           <button class="prize-tab-btn active" data-prize-target="prize-school">
-            🎒 School & Inter Track (₹2,00,000 Pool)
+            <i class="fa-solid fa-graduation-cap" style="margin-right: 6px;"></i> School & Inter Track (₹2,00,000 Pool)
           </button>
           <button class="prize-tab-btn" data-prize-target="prize-college">
-            🎓 College Track (₹3,00,000 Pool)
+            <i class="fa-solid fa-building-columns" style="margin-right: 6px;"></i> College Track (₹3,00,000 Pool)
           </button>
         </div>
 
@@ -423,22 +450,24 @@
           <div class="prize-banner">
             <div class="prize-banner-title">School & Junior College Total Prize Pool</div>
             <div class="prize-banner-amount gold-gradient-text">₹2,00,000</div>
-            <p style="margin-top: 6px; color: #cbd5e1; font-weight: 500; font-size: 0.88rem;">Up to ₹1,00,000 in top direct cash prizes (1st: ₹50,000 · 2nd: ₹30,000 · 3rd: ₹20,000) plus official trophies, medals & merit awards!</p>
+            <p style="margin-top: 6px; color: #cbd5e1; font-weight: 500; font-size: 0.88rem;">Up to ₹1,00,000 in top
+              direct cash prizes (1st: ₹50,000 · 2nd: ₹30,000 · 3rd: ₹20,000) plus official trophies, medals & merit
+              awards!</p>
           </div>
 
           <div class="prizes-grid">
             <!-- 2nd Prize -->
             <div class="prize-card">
               <div>
-                <span class="prize-trophy">🥈</span>
+                <span class="prize-trophy silver-trophy"><i class="fa-solid fa-medal"></i></span>
                 <div class="prize-rank">2nd Prize</div>
                 <div class="prize-amount">₹30,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> ₹30,000 Cash Prize</li>
-                <li><span>✓</span> Official Runner-Up Trophy</li>
-                <li><span>✓</span> MSME & AICTE Certificate of Excellence</li>
-                <li><span>✓</span> Official Medal & Merit Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> ₹30,000 Cash Prize</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Runner-Up Trophy</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of Excellence</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Medal & Merit Recognition</li>
               </ul>
             </div>
 
@@ -446,31 +475,31 @@
             <div class="prize-card winner">
               <span class="prize-badge">CHAMPION</span>
               <div>
-                <span class="prize-trophy">🏆</span>
+                <span class="prize-trophy gold-trophy"><i class="fa-solid fa-trophy"></i></span>
                 <div class="prize-rank" style="color: var(--accent-gold);">1st Grand Prize</div>
                 <div class="prize-amount gold-gradient-text">₹50,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> <strong>₹50,000 Grand Cash Prize</strong></li>
-                <li><span>✓</span> Official Winner Trophy & Medal</li>
-                <li><span>✓</span> MSME & AICTE Certificate of High Distinction</li>
-                <li><span>✓</span> Direct Mentorship & Project Support</li>
-                <li><span>✓</span> Special Merit Award & Grand Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> <strong>₹50,000 Grand Cash Prize</strong></li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Winner Trophy & Medal</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of High Distinction</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Direct Mentorship & Project Support</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Special Merit Award & Grand Recognition</li>
               </ul>
             </div>
 
             <!-- 3rd Prize -->
             <div class="prize-card">
               <div>
-                <span class="prize-trophy">🥉</span>
+                <span class="prize-trophy bronze-trophy"><i class="fa-solid fa-award"></i></span>
                 <div class="prize-rank">3rd Prize</div>
                 <div class="prize-amount">₹20,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> ₹20,000 Cash Prize</li>
-                <li><span>✓</span> Official 2nd Runner-Up Trophy</li>
-                <li><span>✓</span> MSME & AICTE Certificate of Excellence</li>
-                <li><span>✓</span> Official Medal & Merit Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> ₹20,000 Cash Prize</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official 2nd Runner-Up Trophy</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of Excellence</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Medal & Merit Recognition</li>
               </ul>
             </div>
           </div>
@@ -481,22 +510,24 @@
           <div class="prize-banner">
             <div class="prize-banner-title">College & Degree Total Prize Pool</div>
             <div class="prize-banner-amount gold-gradient-text">₹3,00,000</div>
-            <p style="margin-top: 6px; color: #cbd5e1; font-weight: 500; font-size: 0.88rem;">₹1,75,000 in top direct cash prizes (1st: ₹1,00,000 · 2nd: ₹50,000 · 3rd: ₹25,000) + ₹1,25,000 worth gifts for the top 100 students!</p>
+            <p style="margin-top: 6px; color: #cbd5e1; font-weight: 500; font-size: 0.88rem;">₹1,75,000 in top direct
+              cash prizes (1st: ₹1,00,000 · 2nd: ₹50,000 · 3rd: ₹25,000) + ₹1,25,000 worth gifts for the top 100
+              students!</p>
           </div>
 
           <div class="prizes-grid">
             <!-- 2nd Prize -->
             <div class="prize-card">
               <div>
-                <span class="prize-trophy">🥈</span>
+                <span class="prize-trophy silver-trophy"><i class="fa-solid fa-medal"></i></span>
                 <div class="prize-rank">2nd Prize</div>
                 <div class="prize-amount">₹50,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> ₹50,000 Cash Prize</li>
-                <li><span>✓</span> Official Runner-Up Trophy</li>
-                <li><span>✓</span> MSME & AICTE Certificate of Excellence</li>
-                <li><span>✓</span> Official Medal & Merit Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> ₹50,000 Cash Prize</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Runner-Up Trophy</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of Excellence</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Medal & Merit Recognition</li>
               </ul>
             </div>
 
@@ -504,48 +535,54 @@
             <div class="prize-card winner">
               <span class="prize-badge">CHAMPION</span>
               <div>
-                <span class="prize-trophy">🏆</span>
+                <span class="prize-trophy gold-trophy"><i class="fa-solid fa-trophy"></i></span>
                 <div class="prize-rank" style="color: var(--accent-gold);">1st Grand Prize</div>
                 <div class="prize-amount gold-gradient-text">₹1,00,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> <strong>₹1,00,000 Grand Cash Prize</strong></li>
-                <li><span>✓</span> Official Winner Trophy & Medal</li>
-                <li><span>✓</span> MSME & AICTE Certificate of High Distinction</li>
-                <li><span>✓</span> Direct Mentorship & Internship Opportunities</li>
-                <li><span>✓</span> Special Merit Award & Grand Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> <strong>₹1,00,000 Grand Cash Prize</strong></li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Winner Trophy & Medal</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of High Distinction</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Direct Mentorship & Internship Opportunities</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Special Merit Award & Grand Recognition</li>
               </ul>
             </div>
 
             <!-- 3rd Prize -->
             <div class="prize-card">
               <div>
-                <span class="prize-trophy">🥉</span>
+                <span class="prize-trophy bronze-trophy"><i class="fa-solid fa-award"></i></span>
                 <div class="prize-rank">3rd Prize</div>
                 <div class="prize-amount">₹25,000</div>
               </div>
               <ul class="prize-perks">
-                <li><span>✓</span> <strong>₹25,000 Cash Prize</strong></li>
-                <li><span>✓</span> Official 2nd Runner-Up Trophy</li>
-                <li><span>✓</span> MSME & AICTE Certificate of Excellence</li>
-                <li><span>✓</span> Official Medal & Merit Recognition</li>
+                <li><span><i class="fa-solid fa-check"></i></span> <strong>₹25,000 Cash Prize</strong></li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official 2nd Runner-Up Trophy</li>
+                <li><span><i class="fa-solid fa-check"></i></span> MSME & AICTE Certificate of Excellence</li>
+                <li><span><i class="fa-solid fa-check"></i></span> Official Medal & Merit Recognition</li>
               </ul>
             </div>
           </div>
 
           <!-- Top 100 Students Perk Box -->
-          <div style="margin-top: 24px; background: rgba(74, 111, 227, 0.05); border: 1px solid rgba(74, 111, 227, 0.2); border-radius: var(--radius-md); padding: 20px 24px; display: flex; align-items: center; gap: 16px; justify-content: center; text-align: center; flex-wrap: wrap;">
-            <span style="font-size: 2rem;">🎁</span>
+          <div
+            style="margin-top: 24px; background: rgba(74, 111, 227, 0.05); border: 1px solid rgba(74, 111, 227, 0.2); border-radius: var(--radius-md); padding: 20px 24px; display: flex; align-items: center; gap: 16px; justify-content: center; text-align: center; flex-wrap: wrap;">
+            <span style="font-size: 2rem; color: var(--primary);"><i class="fa-solid fa-gift"></i></span>
             <div>
-              <strong style="color: var(--text-heading); font-size: 1.05rem;">₹1,25,000 Worth Gifts for Top 100 Students</strong>
-              <p style="margin-top: 4px; font-size: 0.92rem; color: var(--text-muted);">In addition to the top 3 cash awards totaling ₹1,75,000, the remaining <strong>₹1.25 Lakh worth gifts</strong> (tech accessories, electronics & rewards) will be awarded to the <strong>Top 100 students</strong> in the College Track!</p>
+              <strong style="color: var(--text-heading); font-size: 1.05rem;">₹1,25,000 Worth Gifts for Top 100
+                Students</strong>
+              <p style="margin-top: 4px; font-size: 0.92rem; color: var(--text-muted);">In addition to the top 3 cash
+                awards totaling ₹1,75,000, the remaining <strong>₹1.25 Lakh worth gifts</strong> (tech accessories,
+                electronics & rewards) will be awarded to the <strong>Top 100 students</strong> in the College Track!
+              </p>
             </div>
           </div>
         </div>
 
         <div style="text-align: center; margin-top: 36px;">
           <p style="font-size: 0.95rem; color: var(--text-muted);">
-            📜 <strong>MSME & AICTE Recognized Certification:</strong> Every student who completes the 21-day training and submits
+            <i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 6px;"></i> <strong>MSME & AICTE Recognized Certification:</strong> Every student who completes the 21-day training
+            and submits
             their project receives an official verified <strong>MSME & AICTE Certificate</strong> from Dilshaj Infotech.
           </p>
         </div>
@@ -613,12 +650,13 @@
               logic, computer fundamentals, and real-world project skills.</p>
 
             <ul class="module-list">
-              <li><span class="check">✓</span> <strong>21 Days Offline / 21 Days Online Training</strong> (1 Hr/Day)</li>
-              <li><span class="check">✓</span> <strong>14 Days Mentored Project Building</strong> Period</li>
-              <li><span class="check">✓</span> Logic Building, HTML5, Modern CSS & JavaScript</li>
-              <li><span class="check">✓</span> Compete for <strong>₹2,00,000 Grand Prize Pool</strong></li>
-              <li><span class="check">✓</span> <strong>MSME & AICTE Recognized Certificate</strong> & Showcase</li>
-              <li><span class="check">✓</span> Program Registration Fee: <strong>₹499 Only</strong></li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> <strong>21 Days Offline / 21 Days Online Training</strong> (1 Hr/Day)
+              </li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> <strong>14 Days Mentored Project Building</strong> Period</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Logic Building, HTML5, Modern CSS & JavaScript</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Compete for <strong>₹2,00,000 Grand Prize Pool</strong></li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> <strong>MSME & AICTE Recognized Certificate</strong> & Showcase</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Program Registration Fee: <strong>₹499 Only</strong></li>
             </ul>
 
             <div style="margin-top: auto; padding-top: 24px;">
@@ -639,13 +677,15 @@
               practical web development skills & industry-ready projects.</p>
 
             <ul class="module-list">
-              <li><span class="check">✓</span> <strong>21 Days Offline / 21 Days Online Training</strong> (1 Hr/Day)</li>
-              <li><span class="check">✓</span> HTML5, CSS3, JavaScript & Responsive Design</li>
-              <li><span class="check">✓</span> Portfolio-Ready Capstone Project Construction</li>
-              <li><span class="check">✓</span> Mentor-Guided Project Building & Code Reviews</li>
-              <li><span class="check">✓</span> Compete for <strong>₹3,00,000 Prize Pool</strong> (Top 100 get gifts!)</li>
-              <li><span class="check">✓</span> <strong>MSME & AICTE Recognized Certificate</strong> & Career Value</li>
-              <li><span class="check">✓</span> Program Registration Fee: <strong>₹999 Only</strong></li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> <strong>21 Days Offline / 21 Days Online Training</strong> (1 Hr/Day)
+              </li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> HTML5, CSS3, JavaScript & Responsive Design</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Portfolio-Ready Capstone Project Construction</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Mentor-Guided Project Building & Code Reviews</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Compete for <strong>₹3,00,000 Prize Pool</strong> (Top 100 get gifts!)
+              </li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> <strong>MSME & AICTE Recognized Certificate</strong> & Career Value</li>
+              <li><span class="check"><i class="fa-solid fa-check"></i></span> Program Registration Fee: <strong>₹999 Only</strong></li>
             </ul>
 
             <div style="margin-top: auto; padding-top: 24px;">
@@ -664,7 +704,8 @@
         <div class="section-header">
           <span class="section-tag">Got Questions?</span>
           <h2 class="section-title">Frequently Asked Questions</h2>
-          <p class="section-desc">Everything students and parents need to know about the Dilshaj Infotech Skill Development Program.</p>
+          <p class="section-desc">Everything students and parents need to know about the Dilshaj Infotech Skill
+            Development Program.</p>
         </div>
 
         <div class="faq-list">
@@ -674,7 +715,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              The program has two tracks: <strong>School & Inter Track</strong> for students in Class 6 through Intermediate 2nd Year, and <strong>College & Degree Track</strong> for UG, PG, B.Tech, MCA, B.Sc & Diploma students. No prior coding experience is required for either track.
+              The program has two tracks: <strong>School & Inter Track</strong> for students in Class 6 through
+              Intermediate 2nd Year, and <strong>College & Degree Track</strong> for UG, PG, B.Tech, MCA, B.Sc & Diploma
+              students. No prior coding experience is required for either track.
             </div>
           </div>
 
@@ -684,7 +727,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              The registration fee is: <strong>₹499 per student for Track 1 (School & Inter: Class 6th to 12th)</strong> and <strong>₹999 per student for Track 2 (College & Degree: UG/PG/Diploma)</strong>. This one-time fee includes 21 days of offline/online training, 14 days of dedicated project mentorship, an official verified <strong>MSME & AICTE recognized certificate</strong>, lab/learning access, and eligibility to compete for the grand prize pools (up to ₹5,00,000 combined across tracks).
+              The registration fee is: <strong>₹499 per student for Track 1 (School & Inter: Class 6th to 12th)</strong>
+              and <strong>₹999 per student for Track 2 (College & Degree: UG/PG/Diploma)</strong>. This one-time fee
+              includes 21 days of offline/online training, 14 days of dedicated project mentorship, an official verified
+              <strong>MSME & AICTE recognized certificate</strong>, lab/learning access, and eligibility to compete for
+              the grand prize pools (up to ₹5,00,000 combined across tracks).
             </div>
           </div>
 
@@ -694,7 +741,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              The 21-day training (both Offline Classroom and Live Online batches) is scheduled for <strong>1 hour per day</strong> during late afternoon or evening hours, so it does not clash with regular school or college timings. The exact batch timings will be communicated upon registration.
+              The 21-day training (both Offline Classroom and Live Online batches) is scheduled for <strong>1 hour per
+                day</strong> during late afternoon or evening hours, so it does not clash with regular school or college
+              timings. The exact batch timings will be communicated upon registration.
             </div>
           </div>
 
@@ -704,7 +753,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              For offline classroom training at our center, lab computer systems are fully provided. For online batches, students attend remotely using their own laptop or PC with an internet connection. For the 14-day project phase, having access to a computer at home is recommended for hands-on building.
+              For offline classroom training at our center, lab computer systems are fully provided. For online batches,
+              students attend remotely using their own laptop or PC with an internet connection. For the 14-day project
+              phase, having access to a computer at home is recommended for hands-on building.
             </div>
           </div>
 
@@ -714,7 +765,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              After completing classroom training, students get 14 days to build a real-world software project. Each student is assigned a mentor who provides guidance, code reviews, and milestone check-ins. Students can build individual or team projects, and the best projects compete for cash prizes.
+              After completing classroom training, students get 14 days to build a real-world software project. Each
+              student is assigned a mentor who provides guidance, code reviews, and milestone check-ins. Students can
+              build individual or team projects, and the best projects compete for cash prizes.
             </div>
           </div>
 
@@ -724,7 +777,12 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              There are separate prize pools for each track totaling up to ₹5,00,000. <strong>School & Inter Track:</strong> ₹2,00,000 total pool — 1st Prize ₹50,000, 2nd Prize ₹30,000, 3rd Prize ₹20,000 plus official winner trophies, medals & merit awards. <strong>College Track:</strong> ₹3,00,000 total pool — 1st Prize ₹1,00,000, 2nd Prize ₹50,000, 3rd Prize ₹25,000 (total ₹1,75,000 in top direct cash prizes), plus ₹1,25,000 worth gifts awarded to the top 100 students. Winners are evaluated on Innovation (25%), Technical Execution (25%), Practical Impact (20%), UI/UX (15%), and Presentation (15%).
+              There are separate prize pools for each track totaling up to ₹5,00,000. <strong>School & Inter
+                Track:</strong> ₹2,00,000 total pool — 1st Prize ₹50,000, 2nd Prize ₹30,000, 3rd Prize ₹20,000 plus
+              official winner trophies, medals & merit awards. <strong>College Track:</strong> ₹3,00,000 total pool —
+              1st Prize ₹1,00,000, 2nd Prize ₹50,000, 3rd Prize ₹25,000 (total ₹1,75,000 in top direct cash prizes),
+              plus ₹1,25,000 worth gifts awarded to the top 100 students. Winners are evaluated on Innovation (25%),
+              Technical Execution (25%), Practical Impact (20%), UI/UX (15%), and Presentation (15%).
             </div>
           </div>
 
@@ -734,7 +792,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              Yes! Every student who completes the 21-day training and submits their project receives an official, verifiable <strong>MSME & AICTE Recognized Certificate of Completion</strong> from Dilshaj Infotech — regardless of whether they win a prize. This certification is officially recognized under MSME & AICTE frameworks, providing valuable credibility for academic portfolios, resumes, and higher education applications.
+              Yes! Every student who completes the 21-day training and submits their project receives an official,
+              verifiable <strong>MSME & AICTE Recognized Certificate of Completion</strong> from Dilshaj Infotech —
+              regardless of whether they win a prize. This certification is officially recognized under MSME & AICTE
+              frameworks, providing valuable credibility for academic portfolios, resumes, and higher education
+              applications.
             </div>
           </div>
 
@@ -744,7 +806,10 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              Students learn practical, industry-relevant skills including computational thinking, logic building, HTML5, modern CSS, JavaScript, responsive web design, and project presentation skills. College track students dive deeper into advanced web development, modern frameworks, responsive layouts, and portfolio-ready project construction.
+              Students learn practical, industry-relevant skills including computational thinking, logic building,
+              HTML5, modern CSS, JavaScript, responsive web design, and project presentation skills. College track
+              students dive deeper into advanced web development, modern frameworks, responsive layouts, and
+              portfolio-ready project construction.
             </div>
           </div>
 
@@ -754,7 +819,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              Not at all. The program is designed from scratch for complete beginners. Our curriculum starts with foundational logic and computational thinking before progressing to coding. Students of all skill levels are welcome.
+              Not at all. The program is designed from scratch for complete beginners. Our curriculum starts with
+              foundational logic and computational thinking before progressing to coding. Students of all skill levels
+              are welcome.
             </div>
           </div>
 
@@ -764,7 +831,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              Students can choose between two flexible learning modes: <strong>21 Days Offline Classroom Training</strong> held at the <strong>Dilshaj Infotech Training Center</strong> with dedicated computer labs, OR <strong>21 Days Live Online Training</strong> with interactive screen sharing, mentor guidance, and recorded sessions. To register, click the "Register Now" button and fill out the Google Form for your applicable track.
+              Students can choose between two flexible learning modes: <strong>21 Days Offline Classroom
+                Training</strong> held at the <strong>Dilshaj Infotech Training Center</strong> with dedicated computer
+              labs, OR <strong>21 Days Live Online Training</strong> with interactive screen sharing, mentor guidance,
+              and recorded sessions. To register, click the "Register Now" button and fill out the Google Form for your
+              applicable track.
             </div>
           </div>
         </div>
@@ -788,7 +859,8 @@
             </div>
           </div>
           <p style="font-size: 0.92rem; max-width: 320px; margin-bottom: 16px;">
-            Empowering the next generation with practical web development skills, real project experience, and <strong>MSME & AICTE recognized certification</strong>.
+            Empowering the next generation with practical web development skills, real project experience, and
+            <strong>MSME & AICTE recognized certification</strong>.
           </p>
           <div style="font-size: 0.85rem; color: var(--secondary);">
             Tagline: "Skills for today. Builders for tomorrow."
@@ -818,19 +890,19 @@
         <div class="footer-col">
           <h4>Contact & Support</h4>
           <div class="footer-contact-item">
-            <span>📍</span>
+            <span><i class="fa-solid fa-location-dot"></i></span>
             <span>Dilshaj Infotech Skill Center, Technology Hub</span>
           </div>
           <div class="footer-contact-item">
-            <span>💻</span>
+            <span><i class="fa-solid fa-laptop-code"></i></span>
             <span>Modes: 21 Days Offline / 21 Days Online</span>
           </div>
           <div class="footer-contact-item">
-            <span>📞</span>
+            <span><i class="fa-solid fa-phone"></i></span>
             <span>+91 8977272783</span>
           </div>
           <div class="footer-contact-item">
-            <span>✉️</span>
+            <span><i class="fa-solid fa-envelope"></i></span>
             <span>info@dilshajinfotech.com</span>
           </div>
         </div>
