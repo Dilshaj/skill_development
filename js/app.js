@@ -30,14 +30,14 @@ function initNavbar() {
   if (mobileToggle && mobileDrawer) {
     const closeDrawer = () => {
       mobileDrawer.classList.remove('open');
-      mobileToggle.textContent = '☰';
+      mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       mobileToggle.setAttribute('aria-expanded', 'false');
     };
 
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = mobileDrawer.classList.toggle('open');
-      mobileToggle.textContent = isOpen ? '✕' : '☰';
+      mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
